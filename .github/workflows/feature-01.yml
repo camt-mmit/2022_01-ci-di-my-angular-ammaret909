@@ -14,15 +14,11 @@ jobs:
     - uses: actions/setup-node@v3
         with:
           node-version: "16"
-    - name: Setup git user
     - run: |
         git config --global user.email "${{ github.event.pusher.email }}"
         git config --global user.name "${{ github.actor }}" 
-    - name: yarn install 
-      run: npm install -g yarn 
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-    - name: Build project
-      run: npx ng build --configuration=production --base-href="/${{ github.event.repository.name }}/"
+    - run: npm install -g yarn 
+    - run: yarn install --frozen-lockfile
+    - run: npx ng build --configuration=production --base-href="/${{ github.event.repository.name }}/"
     - run: yarn run lint
     - run: yarn run test:ci
