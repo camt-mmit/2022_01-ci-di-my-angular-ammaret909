@@ -34,11 +34,11 @@ jobs:
         run: yarn run lint
       - name: Test project
         run: yarn run test:ci
-      - name: Merge to master
+      - name: Merge to main
         run: |
           git fetch --unshallow
-          git checkout master
+          git checkout main
           git merge ${{ env.BRANCH_NAME }}
           git push --delete origin ${{ env.BRANCH_NAME }}
           git tag -a ${{ env.TAG_NAME }} -m "my version ${{ env.VERSION }}"
-          git push origin master --tags
+          git push origin main --tags

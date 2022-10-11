@@ -5,8 +5,8 @@ on:
     tags: 
       - v*.*.*
 jobs:
-  ci-main:name: master release
-run-name: ${{ github.actor }} is releasing master
+  ci-main:name: main release
+run-name: ${{ github.actor }} is releasing main
 on:
   push:
     tags:
