@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.RELEASE_TOKEN }}
+          token: ${{ secrets.RE_TOKEN }}
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
@@ -29,4 +29,4 @@ jobs:
       - name: Release main
         uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.RELEASE_TOKEN }}
+          token: ${{ secrets.RE_TOKEN }}
